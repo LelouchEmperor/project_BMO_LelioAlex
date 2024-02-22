@@ -1,0 +1,66 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ 
+ abstract class Utilisateur {
+   private userId : integer
+   private username : String
+   private compte : Compte
+ }
+  
+  class Compte {
+    private compteId : integer 
+    private compteEmail : String
+    private compteMotDePasse : String 
+  }
+  
+  class Pari {
+    private pariId : integer
+    private utilisateur : Utilisateur
+    private evenement : Evenement
+    private pariType : PariType
+    private montant : integer
+    private resultat : Resultat
+   }
+  
+ class Bookmaker {
+   private bookmakerId : integer
+   private bookmakerName : String
+   private events : array 
+ }
+
+ 
+ class Resultat {
+   private score : integer
+   private idMatch : integer
+ }
+  
+ class TypePari {
+  private orderItemId : integer
+  private productId : integer
+  private quantity : integer
+ }
+
+  class SportType {
+    private sportTypeId : integer
+    private sportTypeName : String 
+	}
+
+  class Evenement {
+    private evenementId : integer 
+    private evenementName : String 
+    private evenementDate : Date 
+    private sportType : SportType
+    }
+  
+
+
+ Evenement -g-> SportType;
+ Pari -- Compte;
+ Utilisateur -- Compte;
+ TypePari -- Pari;
+ Bookmaker -- Pari;
+ Pari --> Resultat;
+ Evenement -- Pari;
+  
+
+  
+}

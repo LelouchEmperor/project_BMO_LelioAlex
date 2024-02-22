@@ -1,0 +1,40 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ 
+ abstract class Parieur {
+ 
+ }
+  
+ class Bookmaker {
+ }
+
+ class Compte {
+ }
+ 
+ class Resultat {
+
+ }
+
+ class TypeParie {
+  private orderItemId : integer
+  private productId : integer
+  private quantity : integer
+ }
+
+
+
+ align {
+  Bookmaker
+  Parieur
+ }
+
+ align {
+  Resultat
+  TypeParie
+ }
+
+ Bookmaker -g-> Parieur
+ Compte -g-> Parieur
+ Bookmaker "1" --> "0..*" Resultat;
+ TypeParie "1..*" -c-> "1" Resultat
+  
+}

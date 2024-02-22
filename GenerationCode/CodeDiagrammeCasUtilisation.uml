@@ -1,0 +1,24 @@
+UseCaseDiagram [frame=true framecolor=steelblue label="Usecase Diagram"] {
+  attribute usecase [fillcolor=paleturquoise]
+  actor a as "Parieur"
+  actor c as "Bookmaker"
+  system s as "Parie en ligne " [fillcolor=whitesmoke] {
+    usecase u1 as "Création des paries" 
+    usecase u2 as "Créer un compte" 
+    usecase u3 as "Mettre une somme sur un parie"
+    usecase u4 as "Selection du type de parie"
+    usecase u5 as "Selection de l'evenement sportif"
+
+    usecase u6 as "Definition des parametres des évenements	" 
+    usecase u7 as "Limitations du montant possible par les parieurs par parie" 
+
+  }
+  a "1" -- "0..1" u1
+  a "1" -- "0..1" u2
+  a "1" -- "0..1" u3
+  a "1" -- "0..1" u4
+  a "1" -- "0..1" u5
+  c "1" -- "0..1" u6
+  c "1" -- "0..1" u7
+
+}
