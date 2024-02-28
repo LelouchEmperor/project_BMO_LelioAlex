@@ -3,28 +3,35 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
  abstract class Utilisateur {
    private userId : integer
    private username : String
-   private compte : Compte
+   private compteId : integer
  }
   
   class Compte {
     private compteId : integer 
     private compteEmail : String
+    private nbrDeJeton : integer
     private compteMotDePasse : String 
+    private userId : integer
+    login(compteMotDePasse, compteEmail)
+
   }
   
   class Pari {
     private pariId : integer
-    private utilisateur : Utilisateur
-    private evenement : Evenement
-    private pariType : PariType
+    private utilisateurId : integer
+    private evenementId : integer
+    private pariTypeId : integer
     private montant : integer
-    private resultat : Resultat
+    private resultatId : integer
+    private bookmakerId : integer
+    private choixPeriode : int
+    creerPari(utilisateurId, evenementId,pariTypeId, montant, resultatId, choixPeriode, bookmakerId)
    }
   
  class Bookmaker {
    private bookmakerId : integer
-   private bookmakerName : String
-   private events : array 
+   private bookmakerNom : String
+   private bookmakerPrenom : String
  }
 
  
@@ -34,14 +41,14 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
  }
   
  class TypePari {
-  private orderItemId : integer
-  private productId : integer
-  private quantity : integer
+  private typePariID : integer
+  private Description : String 
  }
 
   class SportType {
     private sportTypeId : integer
     private sportTypeName : String 
+    private nombrePeriode : int
 	}
 
   class Evenement {
@@ -53,13 +60,13 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
   
 
 
- Evenement -g-> SportType;
- Pari -- Compte;
- Utilisateur -- Compte;
- TypePari -- Pari;
- Bookmaker -- Pari;
- Pari --> Resultat;
- Evenement -- Pari;
+ Evenement "1..*"--"1" SportType;
+ Pari -- Utilisateur;
+ Utilisateur "1"--"1" Compte;
+ TypePari "1"-- "1..*" Pari;
+ Bookmaker "1" -- "1..*" Pari;
+ Pari "1..*"-- "1" Resultat;
+ Evenement "1"--"1..*" Pari;
   
 
   
