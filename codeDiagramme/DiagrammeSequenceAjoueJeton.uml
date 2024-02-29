@@ -1,0 +1,23 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Ajout de jetons sur le compte"] {
+  actor user
+  lifeline "Système de gestion" as web
+  lifeline "Compte utilisateur" as compte
+ 
+  user --> web "Demande d'ajout de jeton sur le copte de l'utilisateur"
+            activate web
+  
+  web --> web "vérifie si le compte de l'users existe" 
+  web --> compte "Compte existant ?"
+  compte --> web "Oui" 
+  web --> user "Choix de la somme à ajouté"
+  user --> web "choisi une somme ..." 
+  web --> web "regarde si la somme est possible"
+  web --> user "demande le mode de paiement"
+  user --> web "Selectionne le mode de paiement souhaité"
+  web --> web "Vérifie si le mode de paiement existe bien"
+  web --> user "Confirmation du paiement"
+  user --> web "Ok" 
+  web --> compte "ajout des jetons demandé sur le compte"
+  
+  
+  }

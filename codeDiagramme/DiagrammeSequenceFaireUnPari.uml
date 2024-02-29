@@ -1,0 +1,15 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Faire un pari"] {
+  actor user
+  lifeline "Système de gestion " as web
+ 
+  user --> web "Souhaite réaliser un pari"
+            activate web
+  
+  web --> web "regarde si le pari est existant dans la base de donnés"
+  web --> web "Vérifie si la somme misé est inférieur\n à aux jetons sur le compte"
+	web --> web "Vérifie si la date du parie n'est pas déjà passé" 
+  
+  user <-r- web "Le pari est bien défini, souhaitez vous confirmer ?"
+  user --> web "Confirmation du pari"
+  web --> web "ajout de l'utilisateur X pour le pari X dans la base de données avec le montant misé" 
+}

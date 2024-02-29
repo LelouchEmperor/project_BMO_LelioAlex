@@ -1,0 +1,11 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Création compte"] {
+  actor user
+  lifeline "Système de gestion " as web
+ 
+  user --> web "Demande de création de compte"
+            activate web
+  
+  web --> web "Regarde dans la base de données \n si l'id de l'utilisateur est déjà dans la base de données"
+  user <-r- web "Création du compte"
+  user <-r- web "Ajout de 10000 jetons pour un nouveau compte"
+}

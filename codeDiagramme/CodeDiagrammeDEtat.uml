@@ -1,0 +1,26 @@
+StateDiagram [frame=true framecolor=steelblue label="Deroulement d'un pari" splines=ortho] {
+  state DemandeDeCreationPari
+  state TypePari 
+  state Utilisateur
+  state CréationRefusé
+  state Compte
+  state Jetons
+  state AchatNécéssaire
+  state Evenement
+  state EvenementNonExistant
+  state ValidationPari
+
+  initialState->DemandeDeCreationPari
+
+  DemandeDeCreationPari -> TypePari "Choix"
+  TypePari -> Utilisateur "Existe ?"
+  Utilisateur -> CréationRefusé "non"
+  Utilisateur -> Compte "Possède un"
+  Compte-> Jetons "En possède assez ?"
+  Jetons -> AchatNécéssaire "non"
+  Jetons -> Evenement "Existe ?"
+  Evenement -> EvenementNonExistant  "non ?"
+  Evenement -> ValidationPari "En ordre"
+  
+  
+}
