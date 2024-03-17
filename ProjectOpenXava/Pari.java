@@ -16,6 +16,12 @@ public class Pari {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Hidden
     int id;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @Column(length=50)
+    @Required
+    Bookmaker bookmaker;
+
     
     @ManyToOne(fetch=FetchType.LAZY)
     @Column(length=50)

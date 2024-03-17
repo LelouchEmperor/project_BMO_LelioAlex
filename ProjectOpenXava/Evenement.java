@@ -32,4 +32,9 @@ public class Evenement {
 			optional=true)
 	TypeDeSport typeDeSport;
 
+    @OneToOne(
+			fetch=FetchType.LAZY,
+			optional=true)
+	Resultat resultat;
+    
 }

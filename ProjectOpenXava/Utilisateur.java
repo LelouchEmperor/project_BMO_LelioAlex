@@ -16,5 +16,9 @@ public class Utilisateur {
 
 	@Column(length=50)
 	String username;
+
+    @Column(length=50)
+    @Required
+    String name;
 	
 }

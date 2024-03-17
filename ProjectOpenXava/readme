@@ -1,0 +1,50 @@
+# Description des classes
+Ce document décrit les différentes classes Java fournies, ainsi que leurs attributs et associations.
+
+**Bookmaker**
+bookmakerId : Identifiant unique du bookmaker.
+Nom : Nom du bookmaker.
+Prenom : Prénom du bookmaker.
+
+**Compte**
+compteId : Identifiant unique du compte.
+email : Adresse email associée au compte.
+motDePasse : Mot de passe du compte.
+nombreDeJetons : Nombre de jetons disponibles dans le compte.
+utilisateur : Utilisateur associé au compte.
+
+**Evenement**
+evenementId : Identifiant unique de l'événement.
+Nom : Nom de l'événement.
+date : Date de l'événement.
+typeDeSport : Type de sport associé à l'événement.
+resultat : Résultat de l'événement.
+
+**Pari**
+id : Identifiant unique du pari.
+bookmaker : Bookmaker associé au pari.
+typeDePari : Type de pari du pari.
+utilisateur : Utilisateur qui a effectué le pari.
+evenement : Événement sur lequel le pari a été placé.
+montantMisé : Montant misé dans le pari.
+resultatPrevu : Résultat prévu pour le pari.
+
+**Resultat**
+ResultatId : Identifiant unique du résultat.
+evenementId : Identifiant de l'événement associé au résultat.
+score : Score du résultat.
+
+**TypeDePari**
+id : Identifiant unique du type de pari.
+pari : Pari associé au type de pari.
+description : Description du type de pari.
+
+**TypeDeSport**
+sportTypeid : Identifiant unique du type de sport.
+sporTypeName : Nom du type de sport.
+nombrePeriode : Nombre de périodes associées au type de sport.
+
+**Utilisateur**
+utilisateurId : Identifiant unique de l'utilisateur.
+username : Nom d'utilisateur de l'utilisateur.
+name : Nom de l'utilisateur.
