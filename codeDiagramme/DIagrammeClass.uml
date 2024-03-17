@@ -4,6 +4,8 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
    private userId : integer
    private username : String
    private compteId : integer
+   rechargeJeton(compteId)
+   faireUnPari(pariId)
  }
 
   class Compte {
@@ -13,7 +15,8 @@ ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
     private compteMotDePasse : String
     private userId : integer
     login(compteMotDePasse, compteEmail)
-
+    logout(compteId)
+afficherJetons(nbrDeJeton)
   }
 
   class Pari {
@@ -33,23 +36,27 @@ resultatId, choixPeriode, bookmakerId)
    private bookmakerId : integer
    private bookmakerNom : String
    private bookmakerPrenom : String
+   limiterCotePari(pariId)
+   limiterMontantMaxPari(pariId)
  }
-
 
  class Resultat {
    private score : integer
-   private idMatch : integer
+   private evenementId : integer
  }
 
  class TypePari {
   private typePariID : integer
   private Description : String
+  creerTypePari(Description)
+
  }
 
   class SportType {
     private sportTypeId : integer
     private sportTypeName : String
     private nombrePeriode : int
+    ajouterTypeSport(sportTypeName, nombrePeriode)
 }
 
   class Evenement {
@@ -57,18 +64,14 @@ resultatId, choixPeriode, bookmakerId)
     private evenementName : String
     private evenementDate : Date
     private sportType : SportType
+    creerEvenement(evenementName, evenementDate, sportType)
     }
-
-
 
  Evenement "1..*"--"1" SportType;
  Pari -- Utilisateur;
- Utilisateur "1"--"1" Compte;
+ Utilisateur "1"<--"1" Compte;
  TypePari "1"-- "1..*" Pari;
- Bookmaker "1" -- "1..*" Pari;
- Pari "1..*"-- "1" Resultat;
+ Bookmaker "1" <-- "1..*" Pari;
+ Evenement "1"-- "1" Resultat;
  Evenement "1"--"1..*" Pari;
-
-
-
 }
